@@ -8,22 +8,11 @@ var app = {
     },
 
     onDeviceReady: function() {
-        console.log("onDeviceReady");
-
-        var options = {
-            quality: 50,
-            destinationType: navigator.camera.DestinationType.FILE_URI
-        };
-        navigator.camera.getPicture(function(imageData){
-            alert(imageData);
-        }, function(){
-            alert("fail");
-        }, options);
         app.receivedEvent('deviceready');
     },
 
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
+        var parentElement = document.getElementById(id);http://docs.monaca.mobi/cur/ja/reference/
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
@@ -33,5 +22,18 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function boot_camera(){
+    console.log("boot_camera");
+    var options = {
+        quality: 50,
+        destinationType: navigator.camera.DestinationType.FILE_URI
+    };
+    navigator.camera.getPicture(function(imageData){
+        alert(imageData);
+    }, function(){
+        alert("fail");
+    }, options);
+}
 
 app.initialize();
